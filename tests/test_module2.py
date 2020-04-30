@@ -485,7 +485,8 @@ def test_ssg_config_parser_module2(parse):
     config = ssg.get_by_value("assignment", "config", main.code)
     config_dict = ssg.flatten(config.code.value)
 
-    rp_kv = "parsers:ssg.parsers.ResourceParser()" in config_dict
+    rp_kv = "parsers:ssg.parsers.ResourceParser() " in config_dict
+    print(config_dict)
     assert (
         rp_kv
     ), "Does the `config` dictionary have a `parsers` key with an array with a single value of `ssg.parsers.ResourceParser()`?"
