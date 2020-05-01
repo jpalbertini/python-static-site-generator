@@ -372,12 +372,13 @@ def test_ssg_parsers_array_module4(parse):
 
     config = ssg.get_by_value("assignment", "config", main.code)
     config_dict = ssg.flatten(config.code.value)
+    print(config_dict)
 
     mp_kv = "parsers:ssg.parsers.MarkdownParser()" in config_dict
     assert (
         mp_kv
     ), "Have you added `ssg.parsers.MarkdownParser()` to the `parsers` array in the `config` dictionary?"
-
+    
     mp_kv = "parsers:ssg.parsers.ReStructuredTextParser()" in config_dict
     assert (
         mp_kv
